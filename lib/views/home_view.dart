@@ -169,6 +169,9 @@ class _HomeViewState extends State<HomeView>
           byteImage = value;
         });
       }).onError((error, _) {
+        setState(() {
+          isLoading = false;
+        });
         customMessage(Colors.red, 'No Internet Connection');
       });
     } else {
