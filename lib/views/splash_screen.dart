@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
     widthAnimate = Tween<double>(
       begin: 0,
-      end: 400,
+      end: 200,
     ).animate(_controller);
 
     widthAnimate.addListener(() {
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen>
     });
     _controller.forward();
 
-    Timer(const Duration(seconds: 1), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, 'home');
     });
   }
@@ -55,9 +55,10 @@ class _SplashScreenState extends State<SplashScreen>
       ),
       child: Column(
         children: [
-          const SizedBox(height: 30),
+          const SizedBox(height: 70),
           AnimatedContainer(
             curve: Curves.linear,
+            padding: const EdgeInsets.symmetric(vertical: 5),
             duration: const Duration(milliseconds: 700),
             width: widthAnimate.value,
             decoration: BoxDecoration(
@@ -73,6 +74,7 @@ class _SplashScreenState extends State<SplashScreen>
               maxLines: 1,
               textAlign: TextAlign.center,
               style: TextStyle(
+                fontSize: 20,
                 color: Colors.white,
                 decoration: TextDecoration.none,
               ),
